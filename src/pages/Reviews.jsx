@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 
-function Section6() {
+function Reviews() {
   return (
     <div className="sec-6">
       <Container>
@@ -35,4 +35,4 @@ function Section6() {
   );
 }
 
-export default Section6;
+export default Reviews;

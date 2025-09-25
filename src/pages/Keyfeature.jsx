@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-function Section3() {
+function Keyfeature() {
   return (
     <div className="sec-3">
       <Container>
@@ -41,4 +41,4 @@ function Section3() {
   );
 }
 
-export default Section3;
+export default Keyfeature;

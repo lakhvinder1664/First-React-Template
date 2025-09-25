@@ -28,6 +28,7 @@ body{
     background-repeat: repeat-y;
 }
 
+
 .nav-logo{
      font-family: "ammonite", sans-serif;
 }
@@ -54,12 +55,14 @@ body{
 
 
 .sec-1{
-  background-image: url("./assets/Header & Banner.png");
+  background-image: url("src/assets/Header & Banner.png");
     background-size: cover;       
     background-position: center;  
     background-repeat: no-repeat; 
     padding-bottom: 22%;
     text-align: center;
+      background-color: rgba(0,0,0,0.5); /* semi-transparent */
+  background-blend-mode: overlay;
 }
 
 .sec-1-ctr-txt {

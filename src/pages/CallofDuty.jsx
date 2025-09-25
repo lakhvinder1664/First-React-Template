@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-function Section4() {
+function CallofDuty() {
   const [playVideo, setPlayVideo] = useState(false);
   const devCarouselRef = useRef(null);
 
@@ -63,4 +63,4 @@ function Section4() {
   );
 }
 
-export default Section4;
+export default CallofDuty;

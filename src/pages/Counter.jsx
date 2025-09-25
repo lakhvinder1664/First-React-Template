@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // import SlideImg from "./SlideImg";
 
-function Section2() {
+function Counter() {
   const [playVideo, setPlayVideo] = useState(false);
 
   useEffect(() => {
@@ -42,33 +42,33 @@ function Section2() {
   }, []);
 
   return (
-    <div className="sec-2">
-      <h3>Parchis Club Wants New Members</h3>
-      <div className="three-text">
-        <ul>
-          <li><div className="counter" data-target="4">0</div><div>League</div></li>
-          <li><div className="counter" data-target="320H">0</div><div>Total Streams</div></li>
-          <li><div className="counter" data-target="64K">0</div><div>Awarded</div></li>
-        </ul>
-      </div>
-
-      <div>
-        {!playVideo ? (
-          <img src="/image.png" alt="Thumbnail" onClick={() => setPlayVideo(true)} />
-        ) : (
+    <>
+            <div className="sec-2-right">
+      {!playVideo ? (
+        <div className="thumbnail" onClick={() => setPlayVideo(true)}>
+          <img src="/image.png" alt="Video Thumbnail" style={{ cursor: "pointer" }} />
+          <div className="play-btn"></div>
+        </div>
+      ) : (
+        <div className="video-wrapper">
           <iframe
             src="https://www.youtube.com/embed/FEKdk-cPVmg?autoplay=1"
-            title="YouTube video"
+            title="YouTube video player"
             frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-          />
-        )}
-      </div>
-
-      <h3>Trending Games</h3>
-      <SlideImg />
-    </div>
+          ></iframe>
+        </div>
+      )}
+          <div className="sec-2-right">
+        <h4>Introducing Aquatik Esports | Now Recruiting</h4>
+        <div className="sec-2-right-p d-flex gap-4">
+          <p> <img src="/bx_bxs-check-circle.png" alt="" />Lorem Ipsum is simply</p> <p><img src="/bx_bxs-check-circle.png" alt="" />Lorem Ipsum is simply</p>
+        </div>
+        </div>
+        </div>
+    </>
   );
 }
 
-export default Section2;
+export default Counter;
