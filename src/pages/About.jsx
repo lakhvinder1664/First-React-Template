@@ -1,4 +1,4 @@
-import { Container, Button, Col, Row } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 
 function Section(){
     return(
@@ -72,7 +72,7 @@ function Section(){
               <h4>Key Features</h4>
               <p>We are ready to deliver your vision across multiple platforms, mobile, or desktop. Games are the language of the 21st century and we can help you harness their unique power.</p>
               <p>Games are a language of storytelling. We’re looking for games that develop and expand this language.</p>
-              <Button style={{ background: "#a200ff"}} >Read More</Button>
+              <Button className="page-btn">Read More</Button>
             </div>
           </div>
           </Col>

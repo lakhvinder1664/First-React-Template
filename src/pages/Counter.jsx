@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-// import SlideImg from "./SlideImg";
+import { Container, Row, Col, Button } from "react-bootstrap";
+
 
 function Counter() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -42,8 +43,36 @@ function Counter() {
   }, []);
 
   return (
-    <>
-            <div className="sec-2-right">
+    <Container>
+            <Row>
+        <Col>
+       <div className="sec-2-left">
+         <h2>Parchis Club Wants New Members</h2>
+        <p>It is very important for the customer to be aware of the fact that the customer needs to be able to decorate the product in the two elements</p>
+       
+       <div className="sec-2-left-bottom">
+    <div className="three-text">
+      <ul>
+        <li>
+          <div className="counter" data-target="4">0</div>
+          <div className="btm-counter">League</div>
+        </li>
+        <li>
+          <div className="counter" data-target="320H">0</div>
+          <div className="btm-counter">Total Streams</div>
+        </li>
+        <li>
+          <div className="counter" data-target="64K">0</div>
+          <div className="btm-counter">Awarded</div>
+        </li>
+      </ul>
+    </div>  
+
+       </div>
+       </div>
+        </Col>
+        <Col>
+        <div className="sec-2-right">
       {!playVideo ? (
         <div className="thumbnail" onClick={() => setPlayVideo(true)}>
           <img src="/image.png" alt="Video Thumbnail" style={{ cursor: "pointer" }} />
@@ -67,7 +96,90 @@ function Counter() {
         </div>
         </div>
         </div>
-    </>
+        </Col>
+      </Row>
+
+      <div className="card-sec">
+        <Container>
+          <Row>
+            <div className="card-sec-head d-flex justify-content-between">
+              <h4>Currently Trending Games</h4>
+              <Button className="page-btn" >See All</Button>
+            </div>
+          </Row>
+         <Row>
+  <div className="col-img d-flex">
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img src="/Group 93.png" alt="Game 93" />
+           <div className="bottom-card-cont">
+            <img src="/Group.png" alt="" />
+            <p>40 Followers</p>
+          </div>
+        </div>
+        <div className="flip-card-back">
+          <h5>40k</h5>
+          <p>Awarded</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img src="/Group 94.png" alt="Game 94" />
+           <div className="bottom-card-cont">
+            <p>40 Followers</p>
+          </div>
+          <div className="front-box">
+    <h5>40</h5>
+    <p>Follower</p>
+  </div>
+        </div>
+        <div className="flip-card-back">
+         <h5>40k</h5>
+          <p>Awarded</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img src="/Group 95.png" alt="Game 95" />
+           <div className="bottom-card-cont">
+            <p>40 Followers</p>
+          </div>
+        </div>
+        <div className="flip-card-back">
+          <h5>40k</h5>
+          <p>Awarded</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img src="/Group 96.png" alt="Game 96" />
+          <div className="bottom-card-cont">
+            <p>40 Followers</p>
+          </div>
+        </div>
+        <div className="flip-card-back">
+          <h5>40k</h5>
+          <p>Awarded</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Row>
+
+        </Container>
+      </div>
+
+    </Container>
   );
 }
 

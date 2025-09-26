@@ -2,7 +2,7 @@ import { Container, Row } from "react-bootstrap";
 
 function News() {
   return (
-       <div className="sec-5">
+ <div className="sec-5">
   <Container>
     <Row>
       <div className="sec-5-head-txt text-center">

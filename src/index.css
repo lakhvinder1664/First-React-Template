@@ -28,6 +28,97 @@ body{
     background-repeat: repeat-y;
 }
 
+.page-btn {
+  background: #8a2be2;       
+  border-radius: 30px;
+  border: 2px solid #37ff9f;  
+  position: relative;
+  box-shadow: 0 0 10px #8a2be2; 
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Inner shine runs by default */
+.page-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: skewX(-20deg);
+  animation: shineMove 2s linear infinite; /* continuous shine */
+}
+
+/* Pause shine when hovered */
+.page-btn:hover::before {
+  animation-play-state: paused;
+  left: 100%;   
+}
+
+/* Hover effect */
+.page-btn:hover {
+  transform: scale(1.08); 
+  background: #8a2be2; 
+  border-color: #37ff9f;
+  box-shadow: 0 0 20px #37ff9f, 0 0 40px #8a2be2; 
+}
+
+/* Active (click press) */
+.page-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 15px #37ff9f;
+}
+@keyframes shineMove {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.animated-btn {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.animated-btn:hover {
+  color: #1e1e1e;
+
+  border-color: #37ff9f;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #8bb39f, 0 0 30px #8a2be2;
+  transition: all 0.3s ease;
+}
+
+/* Optional: animated shine inside button */
+.animated-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transform: skewX(-20deg);
+  animation: shineMove 2s linear infinite; /* continuously animate */
+}
+
+.animated-btn:hover::before {
+  animation-play-state: paused;
+  left: 100%;
+}
+
+/* Keyframes for shine */
+@keyframes shineMove {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 
 .nav-logo{
      font-family: "ammonite", sans-serif;
@@ -40,18 +131,38 @@ body{
   margin: -3px 40px;
   padding: 15px 20px;
   position: relative;
-  background-color: transparent !important; /* fully transparent */
-  border: 2px solid #37ff9f;               /* neon border */
-  box-shadow: 0 0 10px #8a2be2;            /* glow effect */
+  background-color: transparent !important; 
+  z-index: 1;
+  overflow: hidden;
 }
 
-.page-btn {
-  background: #8a2be2;       
-  border-radius: 30px;
-  border: 2px solid #37ff9f;  
-  position: relative;
-  box-shadow: 0 0 10px #8a2be2; 
+/* Animated border */
+.top-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  border-radius: inherit; 
+  border: 2px solid transparent; 
+  background: linear-gradient(90deg, #37ff9f, #8a2be2, #37ff9f);
+  background-size: 300% 300%;
+  animation: borderMove 4s linear infinite;
+  mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  box-sizing: border-box;
+  pointer-events: none;
 }
+
+@keyframes borderMove {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
 
 
 .sec-1{
@@ -97,9 +208,42 @@ body{
 }
 
 .sec-2-bg {
-  border-bottom: 2px solid green;
-  border-top: 2px solid green;
+  position: relative;
   background: #1e1e1e;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Top border */
+.sec-2-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px; /* border height */
+  width: 100%;
+  background: linear-gradient(90deg, #37ff9f, #8a2be2, #37ff9f);
+  background-size: 300% 100%;
+  animation: moveBorder 4s linear infinite;
+}
+
+/* Bottom border */
+.sec-2-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px; /* border height */
+  width: 100%;
+  background: linear-gradient(90deg, #37ff9f, #8a2be2, #37ff9f);
+  background-size: 300% 100%;
+  animation: moveBorder 4s linear infinite;
+}
+
+/* Border animation */
+@keyframes moveBorder {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 .sec-2 {
@@ -173,6 +317,7 @@ body{
 
 
 .sec-2-left{
+    color: white;
     margin: 100px 0;
 }
  .sec-2-cont{
@@ -190,17 +335,64 @@ body{
     font-size: 14px;
 }
 .sec-2-left-bottom {
-  background: linear-gradient(86deg, #a523b5, #172458);
+  position: relative;
   padding: 27px 25px;
   border-radius: 20px;
+  background: linear-gradient(86deg, #a523b5, #172458, #a523b5);
+  background-size: 300% 300%; /* zoomed for smooth animation */
+  animation: gradientMove 6s linear infinite; /* continuous movement */
 }
 
+/* Gradient animation keyframes */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 .three-text {
-  border: 3px solid green;
-  border-radius: 10px;
+  position: relative;
   background: black;
   padding: 30px 10px;
+  border-radius: 10px;
+  overflow: hidden; /* for animated border inside */
 }
+
+/* Animated border using ::before */
+.three-text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 3px; /* same as border thickness */
+  border-radius: inherit;
+  background: linear-gradient(90deg, #37ff9f, #8a2be2, #37ff9f);
+  background-size: 300% 300%;
+  animation: borderMove 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude; /* only border visible */
+  pointer-events: none;
+}
+
+/* Keyframes for border animation */
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
 
 .three-text ul {
   display: flex;
@@ -230,7 +422,8 @@ body{
 
   
 .sec-2-right{
-    margin: 75px 0;
+    color: white;
+    margin: 40px 0;
 }
 .sec-2-right h4{
     padding: 0px 20px;
@@ -739,19 +932,44 @@ body{
 }
 
 /* sec-7 */
-.footer{
-    padding: 36px 40px;
-    border-radius: 40px 40px 0 0;
-    color: white;
-    background-image: url("/Header & Banner second.png");
-    background-size: cover;       
-    background-position: center;  
-    background-repeat: no-repeat;
-      position: relative;
+.footer {
+  position: relative;
+  padding: 36px 40px;
+  border-radius: 40px 40px 0 0;
+  color: white;
+  background-image: url("/Header & Banner second.png");
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat;
   background-color: transparent !important; /* fully transparent */
-  border: 2px solid #37ff9f;               /* neon border */
-  box-shadow: 0 0 10px #8a2be2;
+  z-index: 1;
+  overflow: hidden; 
 }
+
+/* Animated border layer */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit; /* same rounded corners */
+  padding: 2px; /* border thickness */
+  background: linear-gradient(90deg, #37ff9f, #8a2be2, #37ff9f);
+  background-size: 300% 300%;
+  animation: borderMove 4s linear infinite; /* continuous movement */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude; /* only border visible */
+  pointer-events: none;
+}
+
+/* Border animation keyframes (same as nav) */
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
 
 .footer-cont-left h4{
   font-size: 36px;
