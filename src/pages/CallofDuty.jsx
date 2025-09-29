@@ -26,21 +26,24 @@ const scrollRight = () => {
     <div className="sec-4">
       <Container>
         <Row>
-          <Col>
-            {!playVideo ? (
-              <div className="thumbnail" onClick={() => setPlayVideo(true)}>
-                <img src="/call of duty img.png" alt="Video Thumbnail" />
-                <div className="play-btn"></div>
-              </div>
-            ) : (
-              <iframe
-                src="https://www.youtube.com/embed/tzIPoiZwPYo?autoplay=1"
-                title="COD Video"
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            )}
-          </Col>
+<Col>
+  <div className="sec-4-img-cont">
+    {!playVideo ? (
+      <div className="thumbnail" onClick={() => setPlayVideo(true)}>
+        <img src="/call of duty img.png" alt="Video Thumbnail" />
+        <div className="play-btn"></div>
+      </div>
+    ) : (
+      <iframe
+        src="https://www.youtube.com/embed/tzIPoiZwPYo?autoplay=1"
+        title="COD Video"
+        frameBorder="0"
+        allowFullScreen   
+      ></iframe>
+    )}
+  </div>
+</Col>
+
         </Row>
       <Row>
           <Col>
